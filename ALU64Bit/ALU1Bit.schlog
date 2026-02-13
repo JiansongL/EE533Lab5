@@ -1,0 +1,12 @@
+select figure at 2709 1187 9 -branches -sn=1
+select figure at 2706 1185 9 -branches -sn=1
+select figure at 2709 1187 9 -branches -sn=1
+select figure at 2709 1187 9 -branches -all -sn=1
+select figure at 2711 1197 9 -branches -sn=1
+select figure at 2711 1194 9 -branches -sn=1
+select figure at 2713 1197 9 -branches -all -sn=1
+select figure at 2989 1273 9 -branches -sn=1
+select figure at 2987 1271 9 -branches -sn=1
+select figure at 3345 1234 9 -branches -sn=1
+select figure at 3342 1232 9 -branches -sn=1
+select figure at 3345 1234 9 -branches -all -sn=1

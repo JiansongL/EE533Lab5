@@ -1,0 +1,4 @@
+verilog work "ALU1Bit.vf"
+verilog work "ALU8Bit.vf"
+verilog work "ALU64Bit.vf"
+verilog work C:/Xilinx/10.1/ISE/verilog/src/glbl.v

@@ -1,0 +1,88 @@
+Determining compilation order of HDL files
+Analyzing Verilog file ALU1Bit.vf
+Analyzing Verilog file ALU8Bit.vf
+Analyzing Verilog file ALU64Bit.vf
+Analyzing Verilog file ALU64Bit_tb.tfw
+Analyzing Verilog file C:/Xilinx/10.1/ISE/verilog/src/glbl.v
+Saving Verilog parse-tree work.M2_1_MXILINX_ALU1Bit into
+c:/labs/alu64bit/isim/work/@m2_1_@m@x@i@l@i@n@x_@a@l@u1@bit.sdb
+Saving Verilog parse-tree work.M2_1E_MXILINX_ALU1Bit into
+c:/labs/alu64bit/isim/work/@m2_1@e_@m@x@i@l@i@n@x_@a@l@u1@bit.sdb
+Saving Verilog parse-tree work.M8_1E_MXILINX_ALU1Bit into
+c:/labs/alu64bit/isim/work/@m8_1@e_@m@x@i@l@i@n@x_@a@l@u1@bit.sdb
+Saving Verilog parse-tree work.ALU1Bit into
+c:/labs/alu64bit/isim/work/@a@l@u1@bit.sdb
+Saving Verilog parse-tree work.M2_1_MXILINX_ALU8Bit into
+c:/labs/alu64bit/isim/work/@m2_1_@m@x@i@l@i@n@x_@a@l@u8@bit.sdb
+Saving Verilog parse-tree work.ALU8Bit into
+c:/labs/alu64bit/isim/work/@a@l@u8@bit.sdb
+Saving Verilog parse-tree work.AND8_MXILINX_ALU64Bit into
+c:/labs/alu64bit/isim/work/@a@n@d8_@m@x@i@l@i@n@x_@a@l@u64@bit.sdb
+Saving Verilog parse-tree work.M2_1_MXILINX_ALU64Bit into
+c:/labs/alu64bit/isim/work/@m2_1_@m@x@i@l@i@n@x_@a@l@u64@bit.sdb
+Saving Verilog parse-tree work.ALU64Bit into
+c:/labs/alu64bit/isim/work/@a@l@u64@bit.sdb
+Saving Verilog parse-tree work.ALU64Bit_tb into
+c:/labs/alu64bit/isim/work/@a@l@u64@bit_tb.sdb
+Saving Verilog parse-tree work.glbl into c:/labs/alu64bit/isim/work/glbl.sdb
+Starting static elaboration
+Restoring Verilog parse-tree unisims_ver.AND2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.XOR3 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.VCC from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.XOR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND2B1 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND3 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND3B1 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.MUXF5_L from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.MUXF6 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.XNOR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND4 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.FMAP from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR2B1 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Completed static elaboration
+Fuse Memory Usage: 54152 Kb
+Fuse CPU Usage: 6139 ms
+Compiling module glbl
+Compiling module AND2
+Compiling module OR2
+Compiling module XOR3
+Compiling module VCC
+Compiling module XOR2
+Compiling module AND2B1
+Compiling module M2_1_MXILINX_ALU1Bit
+Compiling module AND3
+Compiling module AND3B1
+Compiling module M2_1E_MXILINX_ALU1Bit
+Compiling module MUXF5_L
+Compiling module MUXF6
+Compiling module M8_1E_MXILINX_ALU1Bit
+Compiling module XNOR2
+Compiling module ALU1Bit
+Compiling module AND4
+Compiling module M2_1_MXILINX_ALU8Bit
+Compiling module ALU8Bit
+Compiling module M2_1_MXILINX_ALU64Bit
+Compiling module FMAP
+Compiling module AND8_MXILINX_ALU64Bit
+Compiling module OR2B1
+Compiling module ALU64Bit
+Compiling module ALU64Bit_tb
+Compiled 25 Verilog Units
+Built simulation executable ALU64Bit_tb_isim_beh.exe
+Fuse Memory Usage: 55436 Kb
+Fuse CPU Usage: 6749 ms

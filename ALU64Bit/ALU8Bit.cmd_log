@@ -1,0 +1,6 @@
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab5/ALU64Bit/ALU8Bit.sch" ALU8Bit.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab5/ALU64Bit/ALU8Bit.sch" ALU8Bit.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab5/ALU64Bit/ALU8Bit.sch" ALU8Bit.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/labs/ALU64Bit/ALU8Bit.sch" ALU8Bit.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/labs/ALU64Bit/ALU8Bit.sch" ALU8Bit.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/labs/ALU64Bit/ALU8Bit.sch" ALU8Bit.vf
