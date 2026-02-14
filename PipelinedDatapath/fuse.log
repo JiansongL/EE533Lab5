@@ -1,0 +1,31 @@
+Determining compilation order of HDL files
+Analyzing Verilog file reg64.v
+Analyzing Verilog file reg2.v
+Analyzing Verilog file MEMWBStageReg.vf
+Analyzing Verilog file C:/Xilinx/10.1/ISE/verilog/src/glbl.v
+Saving Verilog parse-tree work.reg64 into
+c:/labs/pipelineddatapath/isim/work/reg64.sdb
+Saving Verilog parse-tree work.reg2 into
+c:/labs/pipelineddatapath/isim/work/reg2.sdb
+Saving Verilog parse-tree work.MEMWBStageReg into
+c:/labs/pipelineddatapath/isim/work/@m@e@m@w@b@stage@reg.sdb
+Saving Verilog parse-tree work.glbl into
+c:/labs/pipelineddatapath/isim/work/glbl.sdb
+Starting static elaboration
+Restoring Verilog parse-tree unisims_ver.FD from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.VCC from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Completed static elaboration
+Fuse Memory Usage: 54152 Kb
+Fuse CPU Usage: 514 ms
+Compiling module glbl
+Compiling module FD(INIT=1'b0)_0
+Compiling module VCC
+Compiling module reg64
+Compiling module reg2
+Compiling module MEMWBStageReg
+Compiled 6 Verilog Units
+Built simulation executable MEMWBStageReg_isim_beh.exe
+Fuse Memory Usage: 55436 Kb
+Fuse CPU Usage: 733 ms

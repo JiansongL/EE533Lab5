@@ -1,0 +1,4 @@
+verilog work "reg64.v"
+verilog work "reg2.v"
+verilog work "MEMWBStageReg.vf"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

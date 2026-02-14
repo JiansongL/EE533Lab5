@@ -1,0 +1,6 @@
+verilog work "reg64.v"
+verilog work "m4_64b.v"
+verilog work "decode2b.vf"
+verilog work "reg_file.vf"
+verilog work "reg_file_tb.ant"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

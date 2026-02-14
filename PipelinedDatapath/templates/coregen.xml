@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RootFolder label="COREGEN" treetype="folder" language="COREGEN">
+	<Folder label="VERILOG Component Instantiation" treetype="folder">
+		<Template label="DMemInterface" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+DMemInterface YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [63 : 0] 
+    .addra(addra), // Bus [7 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .clkb(clkb),
+    .addrb(addrb), // Bus [7 : 0] 
+    .doutb(doutb)); // Bus [63 : 0] 
+
+ 
+		</Template>
+		<Template label="IMemInterface" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+IMemInterface YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [31 : 0] 
+    .addra(addra), // Bus [8 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .douta(douta)); // Bus [31 : 0] 
+
+ 
+		</Template>
+	</Folder>
+	<Folder label="VHDL Component Instantiation" treetype="folder">
+		<Template label="DMemInterface" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component DMemInterface
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(63 downto 0);
+    addra: IN std_logic_VECTOR(7 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    clkb: IN std_logic;
+    addrb: IN std_logic_VECTOR(7 downto 0);
+    doutb: OUT std_logic_VECTOR(63 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : DMemInterface
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            clkb =&gt; clkb,
+            addrb =&gt; addrb,
+            doutb =&gt; doutb);
+ 
+		</Template>
+		<Template label="IMemInterface" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component IMemInterface
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(31 downto 0);
+    addra: IN std_logic_VECTOR(8 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    douta: OUT std_logic_VECTOR(31 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : IMemInterface
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            douta =&gt; douta);
+ 
+		</Template>
+	</Folder>
+</RootFolder>

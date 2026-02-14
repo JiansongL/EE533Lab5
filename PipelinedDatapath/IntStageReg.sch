@@ -6,60 +6,31 @@ BEGIN SCHEMATIC
         EDITTRAIT all:0
     END ATTR
     BEGIN NETLIST
-        SIGNAL WREG1I(2:0)
-        SIGNAL WMEO
-        SIGNAL WREO
-        SIGNAL REG1O(2:0)
-        SIGNAL REG2O(2:0)
-        SIGNAL WREG1O(2:0)
         SIGNAL clk
         SIGNAL WMEI
         SIGNAL WREI
         SIGNAL XLXN_17
-        SIGNAL XLXN_18
-        SIGNAL XLXN_19
-        SIGNAL XLXN_20
-        SIGNAL XLXN_21
-        SIGNAL XLXN_22
-        SIGNAL XLXN_25
-        SIGNAL XLXN_26
-        SIGNAL XLXN_27
-        SIGNAL XLXN_28
-        SIGNAL XLXN_29
-        SIGNAL XLXN_30
-        SIGNAL XLXN_31
-        SIGNAL REG1I(2:0)
-        SIGNAL REG2I(2:0)
-        PORT Input WREG1I(2:0)
-        PORT Output WMEO
-        PORT Output WREO
-        PORT Output REG1O(2:0)
-        PORT Output REG2O(2:0)
-        PORT Output WREG1O(2:0)
+        SIGNAL WMEO
+        SIGNAL WREO
+        SIGNAL XLXN_49
+        SIGNAL WREG1I(1:0)
+        SIGNAL WREG1O(1:0)
+        SIGNAL XLXN_52
+        SIGNAL REG2I(63:0)
+        SIGNAL REG2O(63:0)
+        SIGNAL REG1O(63:0)
+        SIGNAL REG1I(63:0)
         PORT Input clk
         PORT Input WMEI
         PORT Input WREI
-        PORT Input REG1I(2:0)
-        PORT Input REG2I(2:0)
-        BEGIN BLOCKDEF fd4ce
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 384 -448 320 -448 
-            LINE N 384 -384 320 -384 
-            LINE N 0 -384 64 -384 
-            LINE N 0 -448 64 -448 
-            LINE N 0 -320 64 -320 
-            LINE N 0 -256 64 -256 
-            LINE N 384 -256 320 -256 
-            LINE N 384 -320 320 -320 
-            RECTANGLE N 64 -512 320 -64 
-            LINE N 0 -192 64 -192 
-            LINE N 0 -32 64 -32 
-            LINE N 192 -32 64 -32 
-            LINE N 192 -64 192 -32 
-            LINE N 80 -128 64 -144 
-            LINE N 64 -112 80 -128 
-            LINE N 0 -128 64 -128 
-        END BLOCKDEF
+        PORT Output WMEO
+        PORT Output WREO
+        PORT Input WREG1I(1:0)
+        PORT Output WREG1O(1:0)
+        PORT Input REG2I(63:0)
+        PORT Output REG2O(63:0)
+        PORT Output REG1O(63:0)
+        PORT Input REG1I(63:0)
         BEGIN BLOCKDEF fd
             TIMESTAMP 2000 1 1 10 10 10
             RECTANGLE N 64 -320 320 -64 
@@ -75,102 +46,59 @@ BEGIN SCHEMATIC
             LINE N 64 0 64 -32 
             LINE N 96 -64 32 -64 
         END BLOCKDEF
-        BEGIN BLOCKDEF gnd
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 64 -64 64 -96 
-            LINE N 76 -48 52 -48 
-            LINE N 68 -32 60 -32 
-            LINE N 88 -64 40 -64 
-            LINE N 64 -64 64 -80 
-            LINE N 64 -128 64 -96 
+        BEGIN BLOCKDEF reg2
+            TIMESTAMP 2026 2 14 5 25 41
+            RECTANGLE N 64 -192 320 0 
+            LINE N 64 -160 0 -160 
+            LINE N 64 -96 0 -96 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 320 -172 384 -148 
+            LINE N 320 -160 384 -160 
         END BLOCKDEF
-        BEGIN BLOCK XLXI_2 fd4ce
-            PIN C clk
-            PIN CE XLXN_17
-            PIN CLR XLXN_28
-            PIN D0 XLXN_20
-            PIN D1 XLXN_21
-            PIN D2 XLXN_22
-            PIN D3 XLXN_28
-            PIN Q0
-            PIN Q1
-            PIN Q2
-            PIN Q3
-        END BLOCK
-        BEGIN BLOCK XLXI_3 fd4ce
-            PIN C clk
-            PIN CE XLXN_17
-            PIN CLR XLXN_28
-            PIN D0 XLXN_27
-            PIN D1 XLXN_26
-            PIN D2 XLXN_25
-            PIN D3 XLXN_28
-            PIN Q0
-            PIN Q1
-            PIN Q2
-            PIN Q3
-        END BLOCK
-        BEGIN BLOCK XLXI_4 fd4ce
-            PIN C clk
-            PIN CE XLXN_17
-            PIN CLR XLXN_28
-            PIN D0 XLXN_31
-            PIN D1 XLXN_30
-            PIN D2 XLXN_29
-            PIN D3 XLXN_28
-            PIN Q0
-            PIN Q1
-            PIN Q2
-            PIN Q3
-        END BLOCK
+        BEGIN BLOCKDEF reg64
+            TIMESTAMP 2026 2 14 3 37 17
+            LINE N 64 32 0 32 
+            LINE N 64 -160 0 -160 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 400 -172 464 -148 
+            LINE N 400 -160 464 -160 
+            RECTANGLE N 64 -192 400 64 
+        END BLOCKDEF
         BEGIN BLOCK XLXI_5 fd
             PIN C clk
             PIN D WREI
-            PIN Q
+            PIN Q WREO
         END BLOCK
         BEGIN BLOCK XLXI_6 fd
             PIN C clk
             PIN D WMEI
-            PIN Q
+            PIN Q WMEO
+        END BLOCK
+        BEGIN BLOCK XLXI_14 reg2
+            PIN clk clk
+            PIN en XLXN_17
+            PIN data_in(1:0) WREG1I(1:0)
+            PIN data_out(1:0) WREG1O(1:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_15 reg64
+            PIN clk clk
+            PIN en XLXN_17
+            PIN data_in(63:0) REG2I(63:0)
+            PIN data_out(63:0) REG2O(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_7 vcc
             PIN P XLXN_17
         END BLOCK
-        BEGIN BLOCK XLXI_8 gnd
-            PIN G XLXN_28
+        BEGIN BLOCK XLXI_16 reg64
+            PIN clk clk
+            PIN en XLXN_17
+            PIN data_in(63:0) REG1I(63:0)
+            PIN data_out(63:0) REG1O(63:0)
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
-        BEGIN BRANCH WREG1I(2:0)
-            WIRE 640 1792 800 1792
-            BEGIN DISPLAY 800 1792 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
-        END BRANCH
-        IOMARKER 640 1792 WREG1I(2:0) R180 28
-        BEGIN BRANCH WMEO
-            WIRE 2720 640 2880 640
-        END BRANCH
-        IOMARKER 2880 640 WMEO R0 28
-        BEGIN BRANCH WREO
-            WIRE 2720 928 2880 928
-        END BRANCH
-        IOMARKER 2880 928 WREO R0 28
-        BEGIN BRANCH REG1O(2:0)
-            WIRE 2720 1216 2880 1216
-        END BRANCH
-        IOMARKER 2880 1216 REG1O(2:0) R0 28
-        BEGIN BRANCH REG2O(2:0)
-            WIRE 2720 1504 2880 1504
-        END BRANCH
-        IOMARKER 2880 1504 REG2O(2:0) R0 28
-        BEGIN BRANCH WREG1O(2:0)
-            WIRE 2720 1792 2880 1792
-        END BRANCH
-        IOMARKER 2880 1792 WREG1O(2:0) R0 28
-        INSTANCE XLXI_2 1552 2528 R0
-        INSTANCE XLXI_3 1552 1904 R0
-        INSTANCE XLXI_4 1552 1280 R0
         INSTANCE XLXI_5 1552 736 R0
         INSTANCE XLXI_6 1552 384 R0
         IOMARKER 1440 256 clk R180 28
@@ -178,15 +106,14 @@ BEGIN SCHEMATIC
             WIRE 1440 256 1520 256
             WIRE 1520 256 1552 256
             WIRE 1520 256 1520 608
-            WIRE 1520 608 1520 1152
-            WIRE 1520 1152 1520 1776
-            WIRE 1520 1776 1552 1776
-            WIRE 1520 1776 1520 2400
-            WIRE 1520 2400 1552 2400
-            WIRE 1520 1152 1552 1152
             WIRE 1520 608 1552 608
+            WIRE 1520 608 1520 896
+            WIRE 1520 896 1520 1520
+            WIRE 1520 1520 1520 2128
+            WIRE 1520 2128 1536 2128
+            WIRE 1520 1520 1552 1520
+            WIRE 1520 896 1552 896
         END BRANCH
-        INSTANCE XLXI_7 1376 752 R0
         BEGIN BRANCH WMEI
             WIRE 1392 128 1552 128
         END BRANCH
@@ -195,69 +122,52 @@ BEGIN SCHEMATIC
             WIRE 1392 480 1552 480
         END BRANCH
         IOMARKER 1392 480 WREI R180 28
+        BEGIN BRANCH WMEO
+            WIRE 1936 128 2096 128
+        END BRANCH
+        IOMARKER 2096 128 WMEO R0 28
+        BEGIN BRANCH WREO
+            WIRE 1936 480 2096 480
+        END BRANCH
+        IOMARKER 2096 480 WREO R0 28
+        BEGIN INSTANCE XLXI_14 1536 2288 R0
+        END INSTANCE
+        BEGIN BRANCH WREG1I(1:0)
+            WIRE 1376 2256 1536 2256
+        END BRANCH
+        IOMARKER 1376 2256 WREG1I(1:0) R180 28
+        BEGIN BRANCH WREG1O(1:0)
+            WIRE 1920 2128 2080 2128
+        END BRANCH
+        IOMARKER 2080 2128 WREG1O(1:0) R0 28
+        BEGIN INSTANCE XLXI_15 1552 1680 R0
+        END INSTANCE
+        BEGIN BRANCH REG2I(63:0)
+            WIRE 1392 1648 1552 1648
+        END BRANCH
+        IOMARKER 1392 1648 REG2I(63:0) R180 28
+        BEGIN BRANCH REG2O(63:0)
+            WIRE 2016 1520 2176 1520
+        END BRANCH
+        IOMARKER 2176 1520 REG2O(63:0) R0 28
         BEGIN BRANCH XLXN_17
             WIRE 1440 752 1440 1088
-            WIRE 1440 1088 1552 1088
             WIRE 1440 1088 1440 1712
-            WIRE 1440 1712 1440 2336
-            WIRE 1440 2336 1552 2336
             WIRE 1440 1712 1552 1712
+            WIRE 1440 1712 1440 2192
+            WIRE 1440 2192 1536 2192
+            WIRE 1440 1088 1552 1088
         END BRANCH
-        INSTANCE XLXI_8 1424 2688 R0
-        BEGIN BRANCH XLXN_20
-            WIRE 1376 2080 1552 2080
+        INSTANCE XLXI_7 1376 752 R0
+        BEGIN INSTANCE XLXI_16 1552 1056 R0
+        END INSTANCE
+        BEGIN BRANCH REG1O(63:0)
+            WIRE 2016 896 2176 896
         END BRANCH
-        BEGIN BRANCH XLXN_21
-            WIRE 1376 2144 1552 2144
+        IOMARKER 2176 896 REG1O(63:0) R0 28
+        BEGIN BRANCH REG1I(63:0)
+            WIRE 1392 1024 1552 1024
         END BRANCH
-        BEGIN BRANCH XLXN_22
-            WIRE 1376 2208 1552 2208
-        END BRANCH
-        BEGIN BRANCH XLXN_25
-            WIRE 1376 1584 1552 1584
-        END BRANCH
-        BEGIN BRANCH XLXN_26
-            WIRE 1376 1520 1552 1520
-        END BRANCH
-        BEGIN BRANCH XLXN_27
-            WIRE 1376 1456 1552 1456
-        END BRANCH
-        BEGIN BRANCH XLXN_28
-            WIRE 1488 1024 1552 1024
-            WIRE 1488 1024 1488 1248
-            WIRE 1488 1248 1552 1248
-            WIRE 1488 1248 1488 1648
-            WIRE 1488 1648 1552 1648
-            WIRE 1488 1648 1488 1872
-            WIRE 1488 1872 1552 1872
-            WIRE 1488 1872 1488 2272
-            WIRE 1488 2272 1488 2496
-            WIRE 1488 2496 1552 2496
-            WIRE 1488 2496 1488 2560
-            WIRE 1488 2272 1552 2272
-        END BRANCH
-        BEGIN BRANCH XLXN_29
-            WIRE 1376 960 1552 960
-        END BRANCH
-        BEGIN BRANCH XLXN_30
-            WIRE 1376 896 1552 896
-        END BRANCH
-        BEGIN BRANCH XLXN_31
-            WIRE 1376 832 1552 832
-        END BRANCH
-        BEGIN BRANCH REG1I(2:0)
-            WIRE 640 832 800 832
-            BEGIN DISPLAY 800 832 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
-        END BRANCH
-        IOMARKER 640 832 REG1I(2:0) R180 28
-        IOMARKER 640 1504 REG2I(2:0) R180 28
-        BEGIN BRANCH REG2I(2:0)
-            WIRE 640 1504 800 1504
-            BEGIN DISPLAY 800 1504 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
-        END BRANCH
+        IOMARKER 1392 1024 REG1I(63:0) R180 28
     END SHEET
 END SCHEMATIC

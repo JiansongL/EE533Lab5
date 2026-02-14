@@ -1,0 +1,12 @@
+# Output products list for <DMemInterface>
+DMemInterface.asy
+DMemInterface.ngc
+DMemInterface.sym
+DMemInterface.v
+DMemInterface.veo
+DMemInterface.vhd
+DMemInterface.vho
+DMemInterface.xco
+DMemInterface_blk_mem_gen_v2_7_xst_1.ngc_xst.xrpt
+DMemInterface_flist.txt
+DMemInterface_xmdf.tcl

@@ -1,0 +1,34 @@
+Command line:
+   ./MEMWBStageReg_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1033
+
+Fri Feb 13 21:36:29 2026
+
+Total Line Count : 28
+
+ Elaboration Time: 0.0625 sec
+
+ Current Memory Usage: 141.418 Meg
+
+ Total Signals          : 29
+ Total Nets             : 145
+ Total Signal Drivers   : 9
+ Total Blocks           : 6
+ Total Primitive Blocks : 5
+ Total Processes        : 16
+ Total Traceable Variables  : 21
+ Total Scalar Nets and Variables : 292
+ntrace select -o on -m / -l this 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Total Simulation Time: 0.28125 sec
+
+ Current Memory Usage: 151.917 Meg
+
+Fri Feb 13 21:36:37 2026
+

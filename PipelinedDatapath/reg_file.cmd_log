@@ -1,0 +1,1 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/labs/PipelinedDatapath/reg_file.sch" reg_file.vf

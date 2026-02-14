@@ -1,0 +1,49 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : sch2verilog
+//  /   /         Filename : PipelinedDatapath.vf
+// /___/   /\     Timestamp : 02/13/2026 21:36:19
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w C:/labs/PipelinedDatapath/PipelinedDatapath.sch PipelinedDatapath.vf
+//Design Name: PipelinedDatapath
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module PipelinedDatapath(clk);
+
+    input clk;
+   
+   wire [2:0] XLXN_3;
+   wire [2:0] XLXN_4;
+   wire [2:0] XLXN_5;
+   wire XLXN_6;
+   wire XLXN_7;
+   wire XLXN_9;
+   wire XLXN_11;
+   wire [1:0] XLXN_12;
+   wire [1:0] XLXN_13;
+   wire [63:0] XLXN_14;
+   
+   IFISReg XLXI_1 (.clk(clk), 
+                   .inst(), 
+                   .instOut());
+   reg_file XLXI_13 (.clk(clk), 
+                     .r0addr(XLXN_13[1:0]), 
+                     .r1addr(XLXN_12[1:0]), 
+                     .waddr(XLXN_11), 
+                     .wdata(XLXN_14[63:0]), 
+                     .wena(XLXN_9), 
+                     .r0data(), 
+                     .r1data());
+endmodule

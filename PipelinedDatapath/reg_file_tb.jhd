@@ -1,0 +1,3 @@
+MODULE reg_file_tb
+SUBMODULE reg_file
+INSTANCE UUT

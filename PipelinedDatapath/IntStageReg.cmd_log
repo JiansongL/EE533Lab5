@@ -1,0 +1,2 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/labs/PipelinedDatapath/IntStageReg.sch" IntStageReg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/labs/PipelinedDatapath/IntStageReg.sch" IntStageReg.vf

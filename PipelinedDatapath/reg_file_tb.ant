@@ -1,0 +1,215 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : reg_file_tb.ant
+// /___/   /\     Timestamp : Fri Feb 13 20:32:51 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: reg_file_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module reg_file_tb;
+    reg clk = 1'b0;
+    reg [1:0] r0addr = 2'b00;
+    reg [1:0] r1addr = 2'b00;
+    reg [1:0] waddr = 2'b00;
+    reg [63:0] wdata = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+    reg wena = 1'b0;
+    wire [63:0] r0data;
+    wire [63:0] r1data;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    reg_file UUT (
+        .clk(clk),
+        .r0addr(r0addr),
+        .r1addr(r1addr),
+        .waddr(waddr),
+        .wdata(wdata),
+        .wena(wena),
+        .r0data(r0data),
+        .r1data(r1data));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock clk
+        #0;
+        ANNOTATE_r0data;
+        ANNOTATE_r1data;
+        #OFFSET;
+        forever begin
+            #15;
+            ANNOTATE_r0data;
+            ANNOTATE_r1data;
+            #5;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\labs\\PipelinedDatapath\\reg_file_tb.ano");
+        #1020 // Final time:  1020 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  85ns
+        #85;
+        wena = 1'b1;
+        wdata = 64'b1111000000000000000000000000000000000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  125ns
+        #40;
+        waddr = 2'b01;
+        wdata = 64'b0000111100000000000000000000000000000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  145ns
+        #20;
+        waddr = 2'b10;
+        // -------------------------------------
+        // -------------  Current Time:  165ns
+        #20;
+        waddr = 2'b11;
+        wdata = 64'b0000000011110000000000000000000000000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #20;
+        wena = 1'b0;
+        waddr = 2'b00;
+        // -------------------------------------
+        // -------------  Current Time:  205ns
+        #20;
+        r0addr = 2'b01;
+        r1addr = 2'b01;
+        wdata = 64'b0000000000001111000000000000000000000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  225ns
+        #20;
+        r0addr = 2'b10;
+        r1addr = 2'b10;
+        // -------------------------------------
+        // -------------  Current Time:  245ns
+        #20;
+        r0addr = 2'b11;
+        r1addr = 2'b11;
+        wdata = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  265ns
+        #20;
+        r0addr = 2'b00;
+        r1addr = 2'b00;
+        // -------------------------------------
+        // -------------  Current Time:  285ns
+        #20;
+        r0addr = 2'b01;
+        // -------------------------------------
+        // -------------  Current Time:  305ns
+        #20;
+        r0addr = 2'b11;
+        // -------------------------------------
+        // -------------  Current Time:  325ns
+        #20;
+        r0addr = 2'b10;
+        // -------------------------------------
+        // -------------  Current Time:  345ns
+        #20;
+        r0addr = 2'b00;
+        r1addr = 2'b01;
+        // -------------------------------------
+        // -------------  Current Time:  365ns
+        #20;
+        r0addr = 2'b01;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #20;
+        r0addr = 2'b11;
+        // -------------------------------------
+        // -------------  Current Time:  405ns
+        #20;
+        r0addr = 2'b10;
+        // -------------------------------------
+        // -------------  Current Time:  425ns
+        #20;
+        r0addr = 2'b00;
+        r1addr = 2'b10;
+        // -------------------------------------
+        // -------------  Current Time:  445ns
+        #20;
+        r0addr = 2'b01;
+        // -------------------------------------
+        // -------------  Current Time:  465ns
+        #20;
+        r0addr = 2'b11;
+        // -------------------------------------
+        // -------------  Current Time:  485ns
+        #20;
+        r0addr = 2'b10;
+        // -------------------------------------
+        // -------------  Current Time:  505ns
+        #20;
+        r0addr = 2'b00;
+        r1addr = 2'b11;
+        // -------------------------------------
+        // -------------  Current Time:  525ns
+        #20;
+        r0addr = 2'b01;
+        // -------------------------------------
+        // -------------  Current Time:  545ns
+        #20;
+        r0addr = 2'b11;
+        // -------------------------------------
+        // -------------  Current Time:  565ns
+        #20;
+        r0addr = 2'b10;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #20;
+        r0addr = 2'b00;
+        r1addr = 2'b00;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_r0data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,r0data,%b]", $time, r0data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_r1data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,r1data,%b]", $time, r1data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

@@ -1,0 +1,12 @@
+# Output products list for <IMemInterface>
+IMemInterface.asy
+IMemInterface.ngc
+IMemInterface.sym
+IMemInterface.v
+IMemInterface.veo
+IMemInterface.vhd
+IMemInterface.vho
+IMemInterface.xco
+IMemInterface_blk_mem_gen_v2_7_xst_1.ngc_xst.xrpt
+IMemInterface_flist.txt
+IMemInterface_xmdf.tcl
