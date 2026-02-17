@@ -1,0 +1,6 @@
+sch2verilog -intstyle ise -family spartan3a   -w "Z:/lab/lab5/IntStageReg.sch" IntStageReg.vf
+sch2verilog -intstyle ise -family spartan3a   -w "Z:/lab/lab5/IntStageReg.sch" IntStageReg.vf
+sch2verilog -intstyle ise -family spartan3a   -w "Z:/lab/lab5/IntStageReg.sch" IntStageReg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/lab/lab5/IntStageReg.sch" IntStageReg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/lab/lab5/IntStageReg.sch" IntStageReg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/lab/lab5/IntStageReg.sch" IntStageReg.vf

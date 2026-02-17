@@ -1,0 +1,3 @@
+MODULE pipeline_tb
+SUBMODULE PipelinedDatapath
+INSTANCE UUT
