@@ -30,12 +30,14 @@ BEGIN SCHEMATIC
         SIGNAL InstIF(31:0)
         SIGNAL InstIF(15:0)
         SIGNAL wea
-        SIGNAL XLXN_55
-        SIGNAL XLXN_56
-        SIGNAL InstAddr(7:0)
+        SIGNAL InstAddr(8:0)
         SIGNAL InstID(12:11)
+        SIGNAL XLXN_58
+        SIGNAL oper(2:0)
+        SIGNAL InstAddr(63:0)
         PORT Input clk
         PORT Input wea
+        PORT Input oper(2:0)
         BEGIN BLOCKDEF IFISReg
             TIMESTAMP 2026 2 14 4 57 51
             LINE N 192 1024 192 968 
@@ -125,35 +127,14 @@ BEGIN SCHEMATIC
             BEGIN LINE W 0 208 32 208 
             END LINE
         END BLOCKDEF
-        BEGIN BLOCKDEF cb8ce
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 384 -128 320 -128 
-            RECTANGLE N 320 -268 384 -244 
-            LINE N 384 -256 320 -256 
-            LINE N 0 -192 64 -192 
-            LINE N 192 -32 64 -32 
-            LINE N 192 -64 192 -32 
-            LINE N 80 -128 64 -144 
-            LINE N 64 -112 80 -128 
-            LINE N 0 -128 64 -128 
-            LINE N 0 -32 64 -32 
-            LINE N 384 -192 320 -192 
-            RECTANGLE N 64 -320 320 -64 
-        END BLOCKDEF
-        BEGIN BLOCKDEF gnd
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 64 -64 64 -96 
-            LINE N 76 -48 52 -48 
-            LINE N 68 -32 60 -32 
-            LINE N 88 -64 40 -64 
-            LINE N 64 -64 64 -80 
-            LINE N 64 -128 64 -96 
-        END BLOCKDEF
-        BEGIN BLOCKDEF vcc
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 64 -32 64 -64 
-            LINE N 64 0 64 -32 
-            LINE N 96 -64 32 -64 
+        BEGIN BLOCKDEF ProgCount
+            TIMESTAMP 2026 2 17 8 8 13
+            RECTANGLE N 320 20 384 44 
+            LINE N 320 32 384 32 
+            RECTANGLE N 0 -108 64 -84 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 64 -128 320 64 
         END BLOCKDEF
         BEGIN BLOCK XLXI_1 IFISReg
             PIN clk clk
@@ -219,21 +200,12 @@ BEGIN SCHEMATIC
             PIN clka clk
             PIN dina(31:0)
             PIN wea wea
-            PIN addra(8:0) InstAddr(7:0)
+            PIN addra(8:0) InstAddr(8:0)
         END BLOCK
-        BEGIN BLOCK XLXI_24 gnd
-            PIN G XLXN_55
-        END BLOCK
-        BEGIN BLOCK XLXI_25 vcc
-            PIN P XLXN_56
-        END BLOCK
-        BEGIN BLOCK XLXI_23 cb8ce
-            PIN C clk
-            PIN CE XLXN_56
-            PIN CLR XLXN_55
-            PIN CEO
-            PIN Q(7:0) InstAddr(7:0)
-            PIN TC
+        BEGIN BLOCK XLXI_27 ProgCount
+            PIN oper(2:0) oper(2:0)
+            PIN clk clk
+            PIN ProgCounter(63:0) InstAddr(63:0)
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 5440 3520
@@ -365,30 +337,16 @@ BEGIN SCHEMATIC
             WIRE 144 2304 192 2304
         END BRANCH
         IOMARKER 144 2304 wea R180 28
-        BEGIN BRANCH XLXN_55
-            WIRE 224 2000 256 2000
-        END BRANCH
-        INSTANCE XLXI_24 160 2128 R0
-        INSTANCE XLXI_25 112 1824 R0
-        BEGIN BRANCH XLXN_56
-            WIRE 176 1824 176 1840
-            WIRE 176 1840 256 1840
-        END BRANCH
-        BEGIN BRANCH InstAddr(7:0)
-            WIRE 640 1776 704 1776
-            BEGIN DISPLAY 704 1776 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH InstAddr(7:0)
+        BEGIN BRANCH InstAddr(8:0)
             WIRE 160 2432 192 2432
             BEGIN DISPLAY 160 2432 ATTR Name
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
         BEGIN BRANCH clk
-            WIRE 176 1904 256 1904
-            WIRE 176 1904 176 2768
+            WIRE 176 1632 304 1632
+            WIRE 176 1632 176 2176
+            WIRE 176 2176 176 2768
             WIRE 176 2768 192 2768
             WIRE 176 2768 176 2864
             WIRE 176 2864 624 2864
@@ -417,6 +375,18 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        INSTANCE XLXI_23 256 2032 R0
+        BEGIN INSTANCE XLXI_27 304 1664 R0
+        END INSTANCE
+        BEGIN BRANCH oper(2:0)
+            WIRE 192 1568 288 1568
+            WIRE 288 1568 304 1568
+        END BRANCH
+        IOMARKER 192 1568 oper(2:0) R180 28
+        BEGIN BRANCH InstAddr(63:0)
+            WIRE 688 1696 784 1696
+            BEGIN DISPLAY 784 1696 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
     END SHEET
 END SCHEMATIC

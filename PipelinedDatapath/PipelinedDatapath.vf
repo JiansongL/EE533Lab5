@@ -7,11 +7,11 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : PipelinedDatapath.vf
-// /___/   /\     Timestamp : 02/13/2026 21:36:19
+// /___/   /\     Timestamp : 02/17/2026 00:10:52
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w C:/labs/PipelinedDatapath/PipelinedDatapath.sch PipelinedDatapath.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/PipelinedDatapath.sch PipelinedDatapath.vf
 //Design Name: PipelinedDatapath
 //Device: virtex2p
 //Purpose:
@@ -20,30 +20,86 @@
 //
 `timescale 1ns / 1ps
 
-module PipelinedDatapath(clk);
+module PipelinedDatapath(clk, 
+                         oper, 
+                         wea);
 
     input clk;
+    input [2:0] oper;
+    input wea;
    
-   wire [2:0] XLXN_3;
-   wire [2:0] XLXN_4;
-   wire [2:0] XLXN_5;
+   wire [63:0] InstAddr;
+   wire [15:0] InstID;
+   wire [31:0] InstIF;
+   wire [1:0] XLXN_3;
+   wire [63:0] XLXN_4;
+   wire [63:0] XLXN_5;
    wire XLXN_6;
    wire XLXN_7;
-   wire XLXN_9;
-   wire XLXN_11;
-   wire [1:0] XLXN_12;
-   wire [1:0] XLXN_13;
    wire [63:0] XLXN_14;
+   wire [63:0] XLXN_15;
+   wire [63:0] XLXN_16;
+   wire XLXN_43;
+   wire XLXN_44;
+   wire [1:0] XLXN_45;
+   wire [1:0] XLXN_46;
+   wire [63:0] XLXN_47;
+   wire XLXN_48;
+   wire [63:0] XLXN_50;
    
    IFISReg XLXI_1 (.clk(clk), 
-                   .inst(), 
-                   .instOut());
+                   .inst(InstIF[15:0]), 
+                   .instOut(InstID[15:0]));
    reg_file XLXI_13 (.clk(clk), 
-                     .r0addr(XLXN_13[1:0]), 
-                     .r1addr(XLXN_12[1:0]), 
-                     .waddr(XLXN_11), 
+                     .r0addr(InstID[12:11]), 
+                     .r1addr(InstID[9:8]), 
+                     .waddr(XLXN_46[1:0]), 
                      .wdata(XLXN_14[63:0]), 
-                     .wena(XLXN_9), 
-                     .r0data(), 
-                     .r1data());
+                     .wena(XLXN_44), 
+                     .r0data(XLXN_16[63:0]), 
+                     .r1data(XLXN_15[63:0]));
+   IntStageReg XLXI_16 (.clk(clk), 
+                        .REG1I(XLXN_16[63:0]), 
+                        .REG2I(XLXN_15[63:0]), 
+                        .WMEI(InstID[15]), 
+                        .WREG1I(InstID[6:5]), 
+                        .WREI(InstID[14]), 
+                        .REG1O(XLXN_5[63:0]), 
+                        .REG2O(XLXN_4[63:0]), 
+                        .WMEO(XLXN_7), 
+                        .WREG1O(XLXN_3[1:0]), 
+                        .WREO(XLXN_6));
+   IntStageReg XLXI_19 (.clk(clk), 
+                        .REG1I(XLXN_5[63:0]), 
+                        .REG2I(XLXN_4[63:0]), 
+                        .WMEI(XLXN_7), 
+                        .WREG1I(XLXN_3[1:0]), 
+                        .WREI(XLXN_6), 
+                        .REG1O(), 
+                        .REG2O(XLXN_50[63:0]), 
+                        .WMEO(XLXN_48), 
+                        .WREG1O(XLXN_45[1:0]), 
+                        .WREO(XLXN_43));
+   MEMWBStageReg XLXI_20 (.clk(clk), 
+                          .WDataI(XLXN_47[63:0]), 
+                          .WREG1I(XLXN_45[1:0]), 
+                          .WREI(XLXN_43), 
+                          .WDataO(XLXN_14[63:0]), 
+                          .WREG1O(XLXN_46[1:0]), 
+                          .WREO(XLXN_44));
+   DMemInterface XLXI_21 (.addra(), 
+                          .addrb(), 
+                          .clka(clk), 
+                          .clkb(clk), 
+                          .dina(XLXN_50[63:0]), 
+                          .wea(XLXN_48), 
+                          .doutb(XLXN_47[63:0]));
+   IMemInterface XLXI_22 (.addra(InstAddr[8:0]), 
+                          .clka(clk), 
+                          .dina(), 
+                          .wea(wea), 
+                          .douta(InstIF[31:0]));
+   ProgCount XLXI_27 (.clk(clk), 
+                      .oper(oper[2:0]), 
+                      .ProgCounter(InstAddr[63:0]));
 endmodule

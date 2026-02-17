@@ -836,12 +836,16 @@ proc restore { { project_dir "" } } {
   } "A problem occured while restoring project settings."
 
   set user_files { 
+      "ALU1Bit.sch" 
+      "ALU64Bit.sch" 
+      "ALU8Bit.sch" 
       "DMemInterface.xco" 
       "IFISReg.sch" 
       "IMemInterface.xco" 
       "IntStageReg.sch" 
       "MEMWBStageReg.sch" 
       "PipelinedDatapath.sch" 
+      "ProgCount.sch" 
       "decode2b.sch" 
       "m4_64b.v" 
       "reg2.v" 
@@ -855,6 +859,7 @@ proc restore { { project_dir "" } } {
   } "A problem occured while restoring user files."
 
   set imported_files { 
+      "ALU64Bit.sym" 
       "DMemInterface.asy" 
       "DMemInterface.ngc" 
       "DMemInterface.sym" 
@@ -872,6 +877,7 @@ proc restore { { project_dir "" } } {
       "IMemInterface.vho" 
       "IntStageReg.sym" 
       "MEMWBStageReg.sym" 
+      "ProgCount.sym" 
       "reg2.sym" 
       "reg_file_tb.xwv"}
 
