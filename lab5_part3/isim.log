@@ -1,0 +1,38 @@
+Command line:
+   ./IFISReg_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1104
+
+Tue Feb 17 00:03:03 2026
+
+Total Line Count : 191
+
+ Elaboration Time: 0.21875 sec
+
+ Current Memory Usage: 141.418 Meg
+
+ Total Signals          : 116
+ Total Nets             : 59
+ Total Signal Drivers   : 53
+ Total Blocks           : 21
+ Total Primitive Blocks : 19
+ Total Processes        : 119
+ Total Traceable Variables  : 49
+ Total Scalar Nets and Variables : 170
+ntrace select -o on -n /IFISReg/clk 
+ntrace select -o on -n /IFISReg/inst 
+ntrace select -o on -n /IFISReg/instOut 
+ntrace select -o on -n /IFISReg/XLXN_2 
+ntrace select -o on -n /IFISReg/XLXN_4 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Total Simulation Time: 0.5625 sec
+
+ Current Memory Usage: 151.97 Meg
+
+Tue Feb 17 00:03:57 2026
+

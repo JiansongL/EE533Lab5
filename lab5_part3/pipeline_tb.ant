@@ -1,0 +1,68 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : pipeline_tb.ant
+// /___/   /\     Timestamp : Tue Feb 17 00:07:19 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: pipeline_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module pipeline_tb;
+    reg clk = 1'b0;
+    reg wea = 1'b0;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    PipelinedDatapath UUT (
+        .clk(clk),
+        .wea(wea));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("\\\\vmware-host\\shared folders\\lab\\lab5\\pipeline_tb.ano");
+        #3020 // Final time:  3020 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  985ns
+        #985;
+        wea = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  2885ns
+        #1900;
+        wea = 1'b0;
+        // -------------------------------------
+    end
+
+endmodule
+

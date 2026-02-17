@@ -1,0 +1,69 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : pipeline_tb_selfcheck.tfw
+// /___/   /\     Timestamp : Mon Feb 16 23:46:47 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: pipeline_tb_selfcheck
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module pipeline_tb_selfcheck;
+    reg clk = 1'b0;
+    reg wea = 1'b0;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    PipelinedDatapath UUT (
+        .clk(clk),
+        .wea(wea));
+
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the results file...
+        #3020 // Final time:  3020 ns
+        if (TX_ERROR == 0) begin
+            $display("No errors or warnings.");
+        end else begin
+            $display("%d errors found in simulation.", TX_ERROR);
+        end
+        $stop;
+    end
+
+    initial begin
+        // -------------  Current Time:  1005ns
+        #1005;
+        wea = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  2885ns
+        #1880;
+        wea = 1'b0;
+        // -------------------------------------
+    end
+
+
+endmodule
+
