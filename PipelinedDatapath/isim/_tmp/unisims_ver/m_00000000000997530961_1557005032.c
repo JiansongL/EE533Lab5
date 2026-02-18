@@ -276,3 +276,31 @@ extern void unisims_ver_m_00000000000997530961_1557005032_init()
 	xsi_register_didat("unisims_ver_m_00000000000997530961_1557005032", "isim/_tmp/unisims_ver/m_00000000000997530961_1557005032.didat");
 	xsi_register_executes(pe);
 }
+
+extern void unisims_ver_m_00000000000997530961_0734605950_init()
+{
+	static char *pe[] = {(void *)N38_0,(void *)I40_1,(void *)A44_2,(void *)A50_3,(void *)C53_4,(void *)NR46_5};
+	xsi_register_didat("unisims_ver_m_00000000000997530961_0734605950", "isim/_tmp/unisims_ver/m_00000000000997530961_0734605950.didat");
+	xsi_register_executes(pe);
+}
+
+extern void unisims_ver_m_00000000000997530961_2998952900_init()
+{
+	static char *pe[] = {(void *)N38_0,(void *)I40_1,(void *)A44_2,(void *)A50_3,(void *)C53_4,(void *)NR46_5};
+	xsi_register_didat("unisims_ver_m_00000000000997530961_2998952900", "isim/_tmp/unisims_ver/m_00000000000997530961_2998952900.didat");
+	xsi_register_executes(pe);
+}
+
+extern void unisims_ver_m_00000000000997530961_3318174546_init()
+{
+	static char *pe[] = {(void *)N38_0,(void *)I40_1,(void *)A44_2,(void *)A50_3,(void *)C53_4,(void *)NR46_5};
+	xsi_register_didat("unisims_ver_m_00000000000997530961_3318174546", "isim/_tmp/unisims_ver/m_00000000000997530961_3318174546.didat");
+	xsi_register_executes(pe);
+}
+
+extern void unisims_ver_m_00000000000997530961_1537459953_init()
+{
+	static char *pe[] = {(void *)N38_0,(void *)I40_1,(void *)A44_2,(void *)A50_3,(void *)C53_4,(void *)NR46_5};
+	xsi_register_didat("unisims_ver_m_00000000000997530961_1537459953", "isim/_tmp/unisims_ver/m_00000000000997530961_1537459953.didat");
+	xsi_register_executes(pe);
+}

@@ -1,5 +1,6 @@
 # Output products list for <DMemInterface>
 DMemInterface.asy
+DMemInterface.mif
 DMemInterface.ngc
 DMemInterface.sym
 DMemInterface.v

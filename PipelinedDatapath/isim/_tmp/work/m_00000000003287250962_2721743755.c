@@ -20,7 +20,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/labs/PipelinedDatapath/reg64.v";
+static const char *ng0 = "//vmware-host/Shared Folders/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/reg64.v";
 
 
 

@@ -1,1 +1,7 @@
 sch2verilog -intstyle ise -family virtex2p   -w "C:/labs/PipelinedDatapath/decode2b.sch" decode2b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/decode2b.sch" decode2b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/decode2b.sch" decode2b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/decode2b.sch" decode2b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/decode2b.sch" decode2b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/decode2b.sch" decode2b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/decode2b.sch" decode2b.vf
