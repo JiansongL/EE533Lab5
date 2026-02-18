@@ -1,0 +1,4 @@
+select figure at 1927 2541 6 -branches -sn=1
+select figure at 1925 2540 6 -branches -sn=1
+select figure at 1927 2541 6 -branches -sn=1
+select figure at 1927 2541 6 -branches -all -sn=1

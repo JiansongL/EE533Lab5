@@ -71,6 +71,7 @@ BEGIN SCHEMATIC
     BEGIN SHEET 1 3520 2720
         BEGIN BRANCH addr(1:0)
             WIRE 384 560 624 560
+            WIRE 624 560 624 560
             WIRE 624 560 640 560
             WIRE 640 560 848 560
             WIRE 848 560 848 576

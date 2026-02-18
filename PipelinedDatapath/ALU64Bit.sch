@@ -74,7 +74,7 @@ BEGIN SCHEMATIC
         PORT Input b(63:0)
         PORT Input amask(7:0)
         BEGIN BLOCKDEF ALU8Bit
-            TIMESTAMP 2026 2 12 9 52 34
+            TIMESTAMP 2026 2 17 23 45 49
             RECTANGLE N 64 -256 320 0 
             RECTANGLE N 0 -236 64 -212 
             LINE N 64 -224 0 -224 

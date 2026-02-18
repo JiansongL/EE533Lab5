@@ -9,13 +9,9 @@ BEGIN SCHEMATIC
         SIGNAL clk
         SIGNAL XLXN_17
         SIGNAL WDataI(63:0)
-        SIGNAL XLXN_35
-        SIGNAL XLXN_46
         SIGNAL WDataO(63:0)
         SIGNAL WREO
         SIGNAL WREI
-        SIGNAL XLXN_55
-        SIGNAL XLXN_56
         SIGNAL WREG1I(1:0)
         SIGNAL WREG1O(1:0)
         PORT Input clk

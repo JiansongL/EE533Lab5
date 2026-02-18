@@ -844,6 +844,7 @@ proc restore { { project_dir "" } } {
       "IMemInterface.xco" 
       "IntStageReg.sch" 
       "MEMWBStageReg.sch" 
+      "PipelineDatpath.tbw" 
       "PipelinedDatapath.sch" 
       "ProgCount.sch" 
       "decode2b.sch" 
@@ -859,7 +860,9 @@ proc restore { { project_dir "" } } {
   } "A problem occured while restoring user files."
 
   set imported_files { 
+      "ALU1Bit.sym" 
       "ALU64Bit.sym" 
+      "ALU8Bit.sym" 
       "DMemInterface.asy" 
       "DMemInterface.ngc" 
       "DMemInterface.sym" 
@@ -896,7 +899,7 @@ proc restore { { project_dir "" } } {
       "A" "" "" "" "PROPEXT_xilxSynthAddBufg_virtex2" "16" 
       "A" "" "" "" "PROPEXT_xilxSynthMaxFanout_virtex2" "500" 
       "A" "" "" "" "PROP_AutoGenFile" "false" 
-      "A" "" "" "" "PROP_BehavioralSimTop" "Module|MEMWBStageReg" 
+      "A" "" "" "" "PROP_BehavioralSimTop" "Module|PipelineDatpath" 
       "A" "" "" "" "PROP_CompxlibOtherCompxlibOpts" "" 
       "A" "" "" "" "PROP_CompxlibOutputDir" "$XILINX/<language>/<simulator>" 
       "A" "" "" "" "PROP_CompxlibOverwriteLib" "Overwrite" 

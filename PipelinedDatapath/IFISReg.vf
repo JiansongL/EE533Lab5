@@ -7,11 +7,11 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : IFISReg.vf
-// /___/   /\     Timestamp : 02/13/2026 21:36:20
+// /___/   /\     Timestamp : 02/17/2026 16:24:42
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w C:/labs/PipelinedDatapath/IFISReg.sch IFISReg.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/IFISReg.sch IFISReg.vf
 //Design Name: IFISReg
 //Device: virtex2p
 //Purpose:
@@ -133,22 +133,32 @@ endmodule
 `timescale 1ns / 1ps
 
 module IFISReg(clk, 
-               inst, 
-               instOut);
+               Inst, 
+               InstOut);
 
     input clk;
-    input [15:0] inst;
-   output [15:0] instOut;
+    input [31:0] Inst;
+   output [31:0] InstOut;
    
    wire XLXN_2;
    wire XLXN_4;
+   wire XLXN_7;
+   wire XLXN_8;
    
    FD16CE_MXILINX_IFISReg XLXI_1 (.C(clk), 
                                   .CE(XLXN_2), 
                                   .CLR(XLXN_4), 
-                                  .D(inst[15:0]), 
-                                  .Q(instOut[15:0]));
+                                  .D(Inst[15:0]), 
+                                  .Q(InstOut[15:0]));
    // synthesis attribute HU_SET of XLXI_1 is "XLXI_1_0"
    GND XLXI_2 (.G(XLXN_4));
    VCC XLXI_3 (.P(XLXN_2));
+   FD16CE_MXILINX_IFISReg XLXI_4 (.C(clk), 
+                                  .CE(XLXN_8), 
+                                  .CLR(XLXN_7), 
+                                  .D(Inst[31:16]), 
+                                  .Q(InstOut[31:16]));
+   // synthesis attribute HU_SET of XLXI_4 is "XLXI_4_1"
+   GND XLXI_5 (.G(XLXN_7));
+   VCC XLXI_6 (.P(XLXN_8));
 endmodule

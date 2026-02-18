@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : PipelinedDatapath.vf
-// /___/   /\     Timestamp : 02/17/2026 00:10:52
+// /___/   /\     Timestamp : 02/17/2026 16:24:37
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -29,8 +29,9 @@ module PipelinedDatapath(clk,
     input wea;
    
    wire [63:0] InstAddr;
-   wire [15:0] InstID;
+   wire [31:0] InstID;
    wire [31:0] InstIF;
+   wire [63:0] RegData1;
    wire [1:0] XLXN_3;
    wire [63:0] XLXN_4;
    wire [63:0] XLXN_5;
@@ -44,15 +45,12 @@ module PipelinedDatapath(clk,
    wire [1:0] XLXN_45;
    wire [1:0] XLXN_46;
    wire [63:0] XLXN_47;
-   wire XLXN_48;
    wire [63:0] XLXN_50;
+   wire XLXN_65;
    
-   IFISReg XLXI_1 (.clk(clk), 
-                   .inst(InstIF[15:0]), 
-                   .instOut(InstID[15:0]));
    reg_file XLXI_13 (.clk(clk), 
-                     .r0addr(InstID[12:11]), 
-                     .r1addr(InstID[9:8]), 
+                     .r0addr(InstID[9:8]), 
+                     .r1addr(InstID[11:10]), 
                      .waddr(XLXN_46[1:0]), 
                      .wdata(XLXN_14[63:0]), 
                      .wena(XLXN_44), 
@@ -61,9 +59,9 @@ module PipelinedDatapath(clk,
    IntStageReg XLXI_16 (.clk(clk), 
                         .REG1I(XLXN_16[63:0]), 
                         .REG2I(XLXN_15[63:0]), 
-                        .WMEI(InstID[15]), 
-                        .WREG1I(InstID[6:5]), 
-                        .WREI(InstID[14]), 
+                        .WMEI(InstID[31]), 
+                        .WREG1I(InstID[29:28]), 
+                        .WREI(InstID[30]), 
                         .REG1O(XLXN_5[63:0]), 
                         .REG2O(XLXN_4[63:0]), 
                         .WMEO(XLXN_7), 
@@ -75,9 +73,9 @@ module PipelinedDatapath(clk,
                         .WMEI(XLXN_7), 
                         .WREG1I(XLXN_3[1:0]), 
                         .WREI(XLXN_6), 
-                        .REG1O(), 
+                        .REG1O(RegData1[63:0]), 
                         .REG2O(XLXN_50[63:0]), 
-                        .WMEO(XLXN_48), 
+                        .WMEO(XLXN_65), 
                         .WREG1O(XLXN_45[1:0]), 
                         .WREO(XLXN_43));
    MEMWBStageReg XLXI_20 (.clk(clk), 
@@ -87,19 +85,22 @@ module PipelinedDatapath(clk,
                           .WDataO(XLXN_14[63:0]), 
                           .WREG1O(XLXN_46[1:0]), 
                           .WREO(XLXN_44));
-   DMemInterface XLXI_21 (.addra(), 
-                          .addrb(), 
+   DMemInterface XLXI_21 (.addra(RegData1[7:0]), 
+                          .addrb(RegData1[7:0]), 
                           .clka(clk), 
                           .clkb(clk), 
                           .dina(XLXN_50[63:0]), 
-                          .wea(XLXN_48), 
+                          .wea(), 
                           .doutb(XLXN_47[63:0]));
    IMemInterface XLXI_22 (.addra(InstAddr[8:0]), 
                           .clka(clk), 
                           .dina(), 
-                          .wea(wea), 
+                          .wea(), 
                           .douta(InstIF[31:0]));
    ProgCount XLXI_27 (.clk(clk), 
                       .oper(oper[2:0]), 
                       .ProgCounter(InstAddr[63:0]));
+   IFISReg XLXI_29 (.clk(clk), 
+                    .Inst(InstIF[31:0]), 
+                    .InstOut(InstID[31:0]));
 endmodule

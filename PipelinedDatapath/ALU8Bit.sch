@@ -60,7 +60,7 @@ BEGIN SCHEMATIC
         PORT Input cin
         PORT Output cout
         BEGIN BLOCKDEF ALU1Bit
-            TIMESTAMP 2026 2 12 8 22 7
+            TIMESTAMP 2026 2 17 23 45 12
             RECTANGLE N 64 -256 320 0 
             LINE N 64 -224 0 -224 
             LINE N 64 -160 0 -160 

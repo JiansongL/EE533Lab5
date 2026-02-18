@@ -11,42 +11,21 @@ BEGIN SCHEMATIC
         SIGNAL waddr10
         SIGNAL waddr11
         SIGNAL wena
-        SIGNAL XLXN_20
         SIGNAL waddr(1:0)
         SIGNAL clk
         SIGNAL r1addr(1:0)
-        SIGNAL XLXN_40
         SIGNAL XLXN_1
         SIGNAL XLXN_2
         SIGNAL XLXN_3
         SIGNAL XLXN_4
-        SIGNAL XLXN_45
-        SIGNAL XLXN_48
-        SIGNAL XLXN_49
-        SIGNAL XLXN_50
         SIGNAL r0addr(1:0)
-        SIGNAL XLXN_56
-        SIGNAL XLXN_57
-        SIGNAL XLXN_58
-        SIGNAL XLXN_59(63:0)
-        SIGNAL XLXN_60(63:0)
         SIGNAL wdata(63:0)
-        SIGNAL XLXN_67
-        SIGNAL XLXN_69
-        SIGNAL XLXN_70
-        SIGNAL XLXN_71
         SIGNAL XLXN_77(63:0)
         SIGNAL XLXN_78(63:0)
         SIGNAL XLXN_79(63:0)
         SIGNAL XLXN_80(63:0)
-        SIGNAL XLXN_81
-        SIGNAL XLXN_85
-        SIGNAL XLXN_86
-        SIGNAL XLXN_87
-        SIGNAL XLXN_88
         SIGNAL r1data(63:0)
         SIGNAL r0data(63:0)
-        SIGNAL XLXN_94(1:0)
         PORT Input wena
         PORT Input waddr(1:0)
         PORT Input clk
@@ -179,14 +158,15 @@ BEGIN SCHEMATIC
             WIRE 1280 656 1280 976
             WIRE 1280 656 1360 656
             WIRE 1360 656 1392 656
-            BEGIN DISPLAY 1359 656 ATTR Name
+            BEGIN DISPLAY 1360 656 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH
         BEGIN BRANCH waddr01
             WIRE 1136 1040 1360 1040
+            WIRE 1360 1040 1360 1040
             WIRE 1360 1040 1392 1040
-            BEGIN DISPLAY 1358 1040 ATTR Name
+            BEGIN DISPLAY 1356 1040 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH
@@ -194,8 +174,9 @@ BEGIN SCHEMATIC
             WIRE 1136 1104 1280 1104
             WIRE 1280 1104 1280 1408
             WIRE 1280 1408 1344 1408
+            WIRE 1344 1408 1344 1408
             WIRE 1344 1408 1392 1408
-            BEGIN DISPLAY 1351 1408 ATTR Name
+            BEGIN DISPLAY 1352 1408 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH
@@ -219,13 +200,15 @@ BEGIN SCHEMATIC
             WIRE 1344 1744 1360 1744
             WIRE 1360 1744 1392 1744
             WIRE 1344 1344 1360 1344
+            WIRE 1360 1344 1360 1344
             WIRE 1360 1344 1392 1344
             WIRE 1344 976 1360 976
+            WIRE 1360 976 1360 976
             WIRE 1360 976 1392 976
             BEGIN DISPLAY 1360 1744 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
-            BEGIN DISPLAY 1365 1344 ATTR Name
+            BEGIN DISPLAY 1364 1344 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
             BEGIN DISPLAY 1368 976 ATTR Name
@@ -273,11 +256,12 @@ BEGIN SCHEMATIC
             WIRE 608 256 2496 256
             WIRE 2496 256 2496 928
             WIRE 2496 928 2608 928
+            WIRE 2608 928 2608 928
             WIRE 2608 928 2704 928
             BEGIN DISPLAY 608 256 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
-            BEGIN DISPLAY 2614 928 ATTR Name
+            BEGIN DISPLAY 2612 928 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH

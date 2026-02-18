@@ -1,0 +1,66 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : PipelineDatpath.ant
+// /___/   /\     Timestamp : Tue Feb 17 16:04:19 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: PipelineDatpath
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module PipelineDatpath;
+    reg clk = 1'b0;
+    reg [2:0] oper = 3'b000;
+    reg wea = 1'b0;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    PipelinedDatapath UUT (
+        .clk(clk),
+        .oper(oper),
+        .wea(wea));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("\\\\vmware-host\\shared folders\\shared\\SharedProjects\\EE533Lab5-main\\PipelinedDatapath\\PipelineDatpath.ano");
+        #1020 // Final time:  1020 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  105ns
+        #105;
+        oper = 3'b010;
+        // -------------------------------------
+    end
+
+endmodule
+
