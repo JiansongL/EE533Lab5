@@ -7,13 +7,13 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : IntStageReg.vf
-// /___/   /\     Timestamp : 02/14/2026 14:52:38
+// /___/   /\     Timestamp : 02/17/2026 16:24:47
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family spartan3a -w Z:/lab/EE533Lab5/pipe/IntStageReg.sch IntStageReg.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/IntStageReg.sch IntStageReg.vf
 //Design Name: IntStageReg
-//Device: spartan3a
+//Device: virtex2p
 //Purpose:
 //    This verilog netlist is translated from an ECS schematic.It can be 
 //    synthesized and simulated, but it should not be modified. 

@@ -47,22 +47,22 @@ module IMemInterface(
 
 input clka;
 input [31 : 0] dina;
-input [7 : 0] addra;
+input [8 : 0] addra;
 input [0 : 0] wea;
 output [31 : 0] douta;
 
 // synthesis translate_off
 
       BLK_MEM_GEN_V2_7 #(
-		.C_ADDRA_WIDTH(8),
-		.C_ADDRB_WIDTH(8),
+		.C_ADDRA_WIDTH(9),
+		.C_ADDRB_WIDTH(9),
 		.C_ALGORITHM(1),
 		.C_BYTE_SIZE(9),
 		.C_COMMON_CLK(0),
 		.C_DEFAULT_DATA("0"),
 		.C_DISABLE_WARN_BHV_COLL(0),
 		.C_DISABLE_WARN_BHV_RANGE(0),
-		.C_FAMILY("spartan3"),
+		.C_FAMILY("virtex2p"),
 		.C_HAS_ENA(0),
 		.C_HAS_ENB(0),
 		.C_HAS_MEM_OUTPUT_REGS_A(0),
@@ -73,13 +73,13 @@ output [31 : 0] douta;
 		.C_HAS_REGCEB(0),
 		.C_HAS_SSRA(0),
 		.C_HAS_SSRB(0),
-		.C_INIT_FILE_NAME("no_coe_file_loaded"),
-		.C_LOAD_INIT_FILE(0),
+		.C_INIT_FILE_NAME("IMemInterface.mif"),
+		.C_LOAD_INIT_FILE(1),
 		.C_MEM_TYPE(0),
 		.C_MUX_PIPELINE_STAGES(0),
 		.C_PRIM_TYPE(1),
-		.C_READ_DEPTH_A(256),
-		.C_READ_DEPTH_B(256),
+		.C_READ_DEPTH_A(512),
+		.C_READ_DEPTH_B(512),
 		.C_READ_WIDTH_A(32),
 		.C_READ_WIDTH_B(32),
 		.C_SIM_COLLISION_CHECK("ALL"),
@@ -92,13 +92,13 @@ output [31 : 0] douta;
 		.C_USE_RAMB16BWER_RST_BHV(0),
 		.C_WEA_WIDTH(1),
 		.C_WEB_WIDTH(1),
-		.C_WRITE_DEPTH_A(256),
-		.C_WRITE_DEPTH_B(256),
+		.C_WRITE_DEPTH_A(512),
+		.C_WRITE_DEPTH_B(512),
 		.C_WRITE_MODE_A("WRITE_FIRST"),
 		.C_WRITE_MODE_B("WRITE_FIRST"),
 		.C_WRITE_WIDTH_A(32),
 		.C_WRITE_WIDTH_B(32),
-		.C_XDEVICEFAMILY("spartan3a"))
+		.C_XDEVICEFAMILY("virtex2p"))
 	inst (
 		.CLKA(clka),
 		.DINA(dina),

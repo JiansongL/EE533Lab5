@@ -7,13 +7,13 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : MEMWBStageReg.vf
-// /___/   /\     Timestamp : 02/14/2026 14:52:43
+// /___/   /\     Timestamp : 02/17/2026 16:25:00
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family spartan3a -w Z:/lab/EE533Lab5/pipe/MEMWBStageReg.sch MEMWBStageReg.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/MEMWBStageReg.sch MEMWBStageReg.vf
 //Design Name: MEMWBStageReg
-//Device: spartan3a
+//Device: virtex2p
 //Purpose:
 //    This verilog netlist is translated from an ECS schematic.It can be 
 //    synthesized and simulated, but it should not be modified. 
